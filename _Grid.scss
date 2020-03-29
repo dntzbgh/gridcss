@@ -1,0 +1,41 @@
+@use 'Base';
+
+.grid {
+  // for debug
+  overflow: hidden;
+  -ms-scroll-limit: 0 0 0 0; //ie 10+ overflow
+  -ms-overflow-style: none;
+  padding: Base.$grid-padding;
+  margin: 0;
+  //margin: Base.$grid-margin;
+  // border-box does not count margins
+  //max-height: calc(100% - calc(#{Base.$grid-top-margin} + #{Base.$grid-bottom-margin}));
+  //@debug calc(100% - calc(#{Base.$grid-top-margin} + #{Base.$grid-bottom-margin}));
+  //max-width: calc(100% - calc(#{Base.$grid-left-margin} - #{Base.$grid-right-margin}));
+  width: calc(100% - calc(#{Base.$grid-left-margin} - #{Base.$grid-right-margin}));
+  height: calc(100% - calc(#{Base.$grid-top-margin} + #{Base.$grid-bottom-margin}));
+  box-sizing: border-box;
+
+  .row {
+    //overflow-x: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    box-sizing: inherit;
+
+    .column {
+      box-sizing: inherit;
+      display: flex;
+      flex-direction: column;
+      // IE 11 required specifying the flex-basis otherwise it breaks mobile
+      flex: 1 1 (100%/Base.$grid-max-columns);
+      //max-width: 100%;
+    }
+  }
+}
+
+
+
+
+

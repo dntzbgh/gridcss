@@ -1,0 +1,49 @@
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+.clean_imp {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.clean {
+  padding: 0;
+  margin: 0;
+}
+
+.test {
+  margin: 5px;
+  height: 500px;
+  padding: 5px;
+  background-color: aqua;
+  width: 250px;
+}
+
+.grid {
+  overflow: hidden;
+  -ms-scroll-limit: 0 0 0 0;
+  -ms-overflow-style: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  width: calc(100% - calc(1px - 1px));
+  height: calc(100% - calc(1px + 1px));
+  box-sizing: border-box;
+}
+.grid .row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: inherit;
+}
+.grid .row .column {
+  box-sizing: inherit;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 8.3333333333%;
+}
+
+/*# sourceMappingURL=style.css.map */
