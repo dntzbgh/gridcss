@@ -1,0 +1,63 @@
+@use 'cs_grid_config' as CONFIGS;
+//todo rename for easy write
+// - add col offset
+// - add centering vertically and horizontally
+.cs-grid-flex, .cgf {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  @if (not CONFIGS.$is_prod) {
+    border: solid 1px black;
+  }
+
+
+  .cs-row {
+    //overflow-x: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    box-sizing: inherit;
+    flex: 1 1 (100%/CONFIGS.$grid-max-columns);
+    @if (not CONFIGS.$is_prod) {
+      border: dot-dash 1px #46de1a;
+    }
+
+    .cs-column {
+      box-sizing: inherit;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 (100%/CONFIGS.$grid-max-columns);
+      background-color: #107d8e;
+      @if (not CONFIGS.$is_prod) {
+        border: dotted 1px #e70b37;
+        @debug #{width}
+      }
+      @if (not CONFIGS.$is_prod) {
+        > * {
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+    }
+
+    @if (not CONFIGS.$hide-incorrect-styles) {
+      > :not(.cs-column) {
+        display: none;
+      }
+    }
+
+  }
+
+  @if (not CONFIGS.$hide-incorrect-styles) {
+    > :not(.cs-row) {
+      display: none;
+    }
+  }
+
+}
