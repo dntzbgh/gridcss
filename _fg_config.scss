@@ -2,18 +2,37 @@ $fg_version: 0.0 .1;
 $fg_debugging: true !default;
 $fg_hide_excess: true !default; // hides any element that is not a row or col inside the grid
 $fg_max_grid_columns: 12 !default;
+$fg_col_offsets: (33, 66);
 
-$stack: true !default;
+
 $fg_xs_breakpoint: 20rem !default;
 $fg_sm_breakpoint: 25.875rem !default;
 $fg_md_breakpoint: 48rem !default;
 $fg_lg_breakpoint: 64rem !default;
+$fg_enable_break: true !default;
+$fg_media_break: $fg_md_breakpoint;
+@debug $fg_media_break;
 
-@mixin break {
-  @if ($stack) {
-    @media only screen and (max-width: $fg_xs_breakpoint) {
+//@mixin fg_xs_break {
+//  @if ($fg_enable_break) {
+//    @media only screen and (max-width: $fg_xs_breakpoint) {
+//      @content
+//    }
+//  }
+//}
+//
+//@mixin fg_sm_break {
+//  @if ($fg_enable_break) {
+//    @media only screen and (max-width: $fg_sm_breakpoint) {
+//      @content;
+//    }
+//  }
+//}
+
+@mixin fg_media_break {
+  @if ($fg_enable_break) {
+    @media only screen and (max-width: $fg_media_break) {
       @content;
     }
   }
-
 }

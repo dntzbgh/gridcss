@@ -1,13 +1,13 @@
 @use 'fg_config' as FG_CONFIGS;
 //todo
+// - add wrap
 // - add col offset
-// - fix positioning when changing directions
-// - include classes for breakes
+// - add support for justify content and align items for row
 .fg-grid {
+  // take all the space available inside the placed container
   width: 100%;
   height: 100%;
-  //overflow: hidden;
-  // show border to see the limits of the grid
+  // if in debug, show border to see the limits of the grid
   @if (FG_CONFIGS.$fg_debugging) {
     border: solid 1px black;
     box-sizing: border-box;
@@ -20,9 +20,10 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+    //justify-content: space-around;
     flex-wrap: wrap;
     box-sizing: inherit;
-    flex: 1 1 (100%/FG_CONFIGS.$fg_max_grid_columns);
+    //flex: 0 0 (100%/FG_CONFIGS.$fg_max_grid_columns);
     @if (FG_CONFIGS.$fg_debugging) {
       border: dot-dash 1px #46de1a;
     }
@@ -31,7 +32,7 @@
       box-sizing: inherit;
       display: flex;
       flex-direction: column;
-      flex: 1 0 (100%/FG_CONFIGS.$fg_max_grid_columns);
+      flex: 1 1 (100%/FG_CONFIGS.$fg_max_grid_columns);
       background-color: #107d8e;
       align-items: flex-start;
 
@@ -68,12 +69,6 @@
           margin: 0;
         }
       }
-
-      @include FG_CONFIGS.break {
-        flex-direction: row !important;
-        flex: 1 1 100% !important;
-      }
-
     }
 
     @if (FG_CONFIGS.$fg_hide_excess) {
@@ -82,8 +77,50 @@
       }
     }
 
+    @include FG_CONFIGS.fg_media_break {
+      flex-direction: row;
+      flex: 1 1 100%;
+
+      &.fg-col {
+        // position inside elements
+        &.fg-h-center {
+          justify-content: center;
+        }
+
+        &.fg-h-right {
+          justify-content: flex-start;
+        }
+
+        &.fg-h-left {
+          justify-content: flex-end;
+        }
+
+        &.fg-v-top {
+          align-items: flex-start;
+        }
+
+        &.fg-v-bottom {
+          align-items: flex-end;
+        }
+
+        &.fg-v-center {
+          align-items: center;
+        }
+      }
+    }
+
+
+    &:not(.fg-not-responsive) {
+      //background-color: #e70b37 !important;
+      @include FG_CONFIGS.fg_media_break {
+        flex-direction: column !important;
+        flex: 1 1 100% !important;
+      }
+    }
+
   }
 
+  // if excess is off, remove element from dom
   @if (not FG_CONFIGS.$fg_hide_excess) {
     > :not(.fg-row) {
       display: none;
