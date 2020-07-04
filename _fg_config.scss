@@ -1,5 +1,5 @@
 $fg_version: 0.0 .1;
-$fg_debugging: true !default;
+$fg_debugging: false !default;
 $fg_hide_excess: true !default; // hides any element that is not a row or col inside the grid
 $fg_max_grid_columns: 12 !default;
 $fg_col_offsets: (33, 66);
