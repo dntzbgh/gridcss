@@ -2,7 +2,7 @@ $fg_version: 0.0 .1;
 $fg_debugging: true !default;
 $fg_hide_excess: true !default; // hides any element that is not a row or col inside the grid
 $fg_max_grid_columns: 12 !default;
-$fg_col_offsets: (33, 66);
+$fg_col_offsets: (33, 66, 25, 75, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
 
 
 $fg_xs_breakpoint: 20rem !default;

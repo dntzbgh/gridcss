@@ -46,6 +46,48 @@
   padding: 0;
   margin: 0;
 }
+.fg-grid .fg-row .fg-col.fg-col-size-33 {
+  flex: 0 0 33.33%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-66 {
+  flex: 0 0 66.66%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-25 {
+  flex: 0 0 25%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-75 {
+  flex: 0 0 75%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-10 {
+  flex: 0 0 10%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-20 {
+  flex: 0 0 20%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-30 {
+  flex: 0 0 30%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-40 {
+  flex: 0 0 40%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-50 {
+  flex: 0 0 50%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-60 {
+  flex: 0 0 60%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-70 {
+  flex: 0 0 70%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-80 {
+  flex: 0 0 80%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-90 {
+  flex: 0 0 90%;
+}
+.fg-grid .fg-row .fg-col.fg-col-size-100 {
+  flex: 0 0 100%;
+}
 .fg-grid .fg-row > :not(.fg-col) {
   display: none;
 }
